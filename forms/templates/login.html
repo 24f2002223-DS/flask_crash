@@ -3,15 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{url_for('static' , filename = 'style.css' )}}">
-    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Login | Flask App</title>
 </head>
 <body>
-    LOGIN TO OUR WEBSITE !!
-    <form action="{{ url_for('login') }}" method="post">
-        <label for="a">ENTER YOUR USER ID</label>
-        <input type='text' id="a" name='uid'>
-        <input type='submit'>
-    </form>
+    <main class="page-shell">
+        <section class="login-card">
+            <div class="brand-header">
+                <h1>Welcome Back</h1>
+                <p>Login to continue to your dashboard.</p>
+            </div>
+
+            <form action="{{ url_for('login') }}" method="post" class="login-form">
+                <label for="uid">User ID</label>
+                <input type="text" id="uid" name="uid" placeholder="Enter your user ID" required>
+
+                <button type="submit">Sign In</button>
+            </form>
+        </section>
+    </main>
 </body>
 </html>
