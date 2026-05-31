@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='table.css') }}">
+    <title>Student Report</title>
+</head>
+<body>
+    <div class="page-shell">
+        <section class="report-card">
+            <header>
+                <h1>Student Report</h1>
+                <p>Review the generated report below.</p>
+            </header>
+
+            <table>
+                <tbody>
+                    {% for key, value in report.items() %}
+                    <tr>
+                        <th>{{ key|replace('_', ' ')|title }}</th>
+                        <td>{{ value }}</td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <th>Percentage</th>
+                        <td>{{ ((report.get('marks', 0) | int) / 500 * 100) | round(2) }}%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+</html>
